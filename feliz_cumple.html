@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0f5">
+<title>Un jardín para Esmeralda 🌷</title>
+
+<style>
+:root {
+    --pink: #f6b8cc;
+    --rose: #cf7298;
+    --lilac: #d9c7f5;
+    --mint: #c9eadb;
+    --cream: #fffaf5;
+    --ink: #60485b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    background: linear-gradient(180deg, #fff8fb, #fffdf7 42%, #f8f5ff);
+    overflow-x: hidden;
+}
+
+button, input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 70px 20px 55px;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 40%, #fff, #fff5fa 46%, #f4eaff);
+}
+
+.hero:before, .hero:after {
+    content: "";
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    filter: blur(4px);
+    opacity: .45;
+}
+
+.hero:before {
+    background: #ffd8e7;
+    top: -120px;
+    left: -100px;
+}
+
+.hero:after {
+    background: #dcd0ff;
+    bottom: -150px;
+    right: -100px;
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.eyebrow, .section-kicker {
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font: 600 .75rem Arial, sans-serif;
+    color: #b56b91;
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(3rem, 10vw, 6.7rem);
+    line-height: .95;
+    margin: 18px 0;
+    color: #b65f89;
+    font-weight: normal;
+    text-shadow: 0 5px 0 #fff, 0 12px 30px #f0c3d6;
+}
+
+h1 span {
+    display: block;
+    font-size: .38em;
+    letter-spacing: .13em;
+    color: #9279b6;
+    margin-top: 22px;
+}
+
+.subtitle {
+    font-size: clamp(1.1rem, 3vw, 1.45rem);
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 22px auto 28px;
+}
+
+.primary, .soft {
+    border: 0;
+    border-radius: 999px;
+    padding: 14px 23px;
+    background: linear-gradient(135deg, #d98bad, #c29be8);
+    color: white;
+    box-shadow: 0 9px 22px #c994b533;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.primary:hover, .soft:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 13px 28px #c994b555;
+}
+
+.soft {
+    background: white;
+    color: #a45f87;
+    border: 1px solid #f1cddd;
+}
+
+.scroll-note {
+    font: .8rem Arial, sans-serif;
+    color: #a58ba0;
+    margin-top: 35px;
+}
+
+.float {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    animation: drift 8s ease-in-out infinite;
+}
+
+.flower {
+    font-size: clamp(1.6rem, 4vw, 3rem);
+}
+
+.butterfly {
+    font-size: clamp(1.3rem, 3vw, 2.3rem);
+    animation: fly 10s ease-in-out infinite;
+}
+
+.f1 { left: 8%; top: 18%; }
+.f2 { right: 10%; top: 20%; animation-delay: -2s; }
+.f3 { left: 15%; bottom: 17%; animation-delay: -4s; }
+.f4 { right: 14%; bottom: 15%; animation-delay: -1s; }
+.b1 { left: 18%; top: 43%; }
+.b2 { right: 18%; top: 55%; animation-delay: -3s; }
+.b3 { right: 30%; top: 12%; animation-delay: -5s; }
+
+@keyframes drift {
+    0%, 100% { transform: translateY(0) rotate(-7deg); }
+    50% { transform: translateY(-18px) rotate(8deg); }
+}
+
+@keyframes fly {
+    0%, 100% { transform: translate(0, 0) rotate(-10deg); }
+    35% { transform: translate(25px, -28px) rotate(12deg); }
+    70% { transform: translate(-15px, 12px) rotate(-5deg); }
+}
+
+section {
+    padding: 78px 20px;
+    position: relative;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3.3rem);
+    font-weight: normal;
+    color: #a85f86;
+    margin: 12px 0 16px;
+}
+
+.intro {
+    text-align: center;
+    max-width: 650px;
+    line-height: 1.8;
+    margin: 0 auto 35px;
+    font-size: 1.08rem;
+}
+
+.card {
+    background: #ffffffc9;
+    border: 1px solid #f1dbe7;
+    border-radius: 28px;
+    box-shadow: 0 14px 38px #b991ae12;
+    padding: clamp(22px, 5vw, 42px);
+}
+
+.letter-wrap {
+    max-width: 760px;
+    margin: auto;
+}
+
+.envelope {
+    margin: 20px auto 0;
+    max-width: 430px;
+    text-align: center;
+    padding: 32px 22px;
+    border: 1px solid #f2cddd;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #fff, #fff2f8);
+    box-shadow: 0 15px 35px #d9a4c21f;
+}
+
+.envelope-icon {
+    font-size: 4rem;
+    display: block;
+    animation: drift 4s ease-in-out infinite;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.letter {
+    margin-top: 24px;
+    line-height: 1.95;
+    font-size: 1.12rem;
+    white-space: pre-line;
+    animation: appear .8s ease both;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.memories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.memory {
+    background: white;
+    border: 1px solid #f0dce8;
+    border-radius: 22px;
+    padding: 14px;
+    box-shadow: 0 10px 25px #ad86a511;
+    transform: rotate(var(--rot, 0deg));
+    transition: transform .25s;
+}
+
+.memory:hover {
+    transform: translateY(-5px) rotate(0);
+}
+
+.memory-art {
+    height: 175px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #ffe0ed, #e7ddff);
+    display: grid;
+    place-items: center;
+    font-size: 3.5rem;
+    overflow: hidden;
+}
+
+.memory-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.memory h3 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    text-align: center;
+    margin: 14px 0 7px;
+    color: #a85f86;
+}
+
+.memory p {
+    font: .9rem/1.6 Arial, sans-serif;
+    text-align: center;
+    margin: 0 0 8px;
+    color: #806b7c;
+}
+
+.upload-area {
+    text-align: center;
+    margin-top: 24px;
+    padding: 20px;
+    border: 1px dashed #d8afd0;
+    border-radius: 18px;
+    background: #fff9fc;
+}
+
+input[type=file] {
+    max-width: 100%;
+    margin-top: 12px;
+}
+
+.cake-area {
+    text-align: center;
+}
+
+.cake {
+    position: relative;
+    width: 230px;
+    height: 190px;
+    margin: 30px auto 18px;
+}
+
+.candle-row {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 24px;
+    z-index: 3;
+}
+
+.candle {
+    width: 12px;
+    height: 48px;
+    border-radius: 4px;
+    background: repeating-linear-gradient(45deg, #fff 0 6px, #efb5ce 6px 12px);
+    position: relative;
+    border: 1px solid #e7b5cc;
+    padding: 0;
+}
+
+.flame {
+    position: absolute;
+    width: 13px;
+    height: 21px;
+    border-radius: 60% 40% 55% 45%;
+    background: radial-gradient(circle at 40% 60%, #fff7b8 0 20%, #ffc95e 40%, #f18b64 75%);
+    top: -24px;
+    left: -1px;
+    filter: drop-shadow(0 0 7px #ffc86b);
+    animation: flicker .45s alternate infinite;
+}
+
+.flame.off {
+    display: none;
+}
+
+@keyframes flicker {
+    from { transform: scale(.92) rotate(-4deg); }
+    to { transform: scale(1.08) rotate(5deg); }
+}
+
+.icing {
+    position: absolute;
+    top: 47px;
+    left: 20px;
+    width: 190px;
+    height: 35px;
+    background: #fff0f5;
+    border-radius: 14px 14px 22px 22px;
+    z-index: 2;
+    border-bottom: 5px solid #edb7ce;
+}
+
+.icing:after {
+    content: "";
+    position: absolute;
+    left: 25px;
+    top: 12px;
+    width: 17px;
+    height: 20px;
+    background: #fff0f5;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 43px 0 #fff0f5, 91px 2px #fff0f5, 128px -1px #fff0f5;
+}
+
+.cake-body {
+    position: absolute;
+    top: 72px;
+    left: 15px;
+    width: 200px;
+    height: 85px;
+    background: linear-gradient(90deg, #e9a9c6, #f7cfe0 50%, #e9a9c6);
+    border-radius: 12px 12px 18px 18px;
+    box-shadow: inset 0 -12px #d88bb0, 0 12px 0 #d9b0e9;
+}
+
+.cake-plate {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 230px;
+    height: 20px;
+    border-radius: 50%;
+    background: #e9dafa;
+    border-bottom: 4px solid #cbb7e6;
+}
+
+.cake-heart {
+    position: absolute;
+    z-index: 3;
+    top: 99px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #c86d97;
+    font-size: 1.6rem;
+}
+
+.game-box {
+    max-width: 650px;
+    margin: auto;
+    text-align: center;
+}
+
+.progress {
+    height: 7px;
+    background: #f4e4ee;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 18px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #e9a7c5, #c6a8ec);
+    transition: width .4s;
+}
+
+.answers {
+    display: grid;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.answer {
+    padding: 14px 16px;
+    border: 1px solid #ecd3e2;
+    background: #fff9fc;
+    border-radius: 15px;
+    color: #76576e;
+    text-align: left;
+}
+
+.answer:hover {
+    background: #fceaf3;
+}
+
+.feedback {
+    min-height: 28px;
+    margin: 15px 0;
+    font: .95rem Arial, sans-serif;
+}
+
+.blessing {
+    background: linear-gradient(135deg, #fff4f8, #f4efff);
+    border-radius: 28px;
+    padding: 35px;
+    text-align: center;
+    border: 1px solid #ead8ef;
+    line-height: 1.9;
+    font-size: 1.12rem;
+}
+
+.final-box {
+    text-align: center;
+    max-width: 750px;
+    margin: auto;
+}
+
+.big-heart {
+    font-size: 4rem;
+    display: inline-block;
+    animation: heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.12); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.08); }
+}
+
+footer {
+    text-align: center;
+    padding: 35px 20px 45px;
+    color: #a58ba0;
+    font: .85rem/1.8 Arial, sans-serif;
+}
+
+.music-control {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 10;
+    border: 1px solid #f0d4e4;
+    background: #ffffffed;
+    color: #a45f87;
+    border-radius: 999px;
+    padding: 12px 16px;
+    box-shadow: 0 8px 25px #96718c22;
+    font: 600 .85rem Arial, sans-serif;
+}
+
+#confetti {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 20;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    top: -20px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: .2;
+    }
+}
+
+@media (max-width: 720px) {
+    .memories {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: auto;
+    }
+
+    .memory-art {
+        height: 220px;
+    }
+
+    section {
+        padding: 60px 17px;
+    }
+
+    .card {
+        border-radius: 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *:before, *:after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="confetti" aria-hidden="true"></div>
+
+<button class="music-control" id="musicBtn" type="button">
+    ♫ Activar música
+</button>
+
+<header class="hero" id="inicio">
+
+    <span class="float flower f1">🌷</span>
+    <span class="float flower f2">🌼</span>
+    <span class="float flower f3">🌸</span>
+    <span class="float flower f4">🌺</span>
+
+    <span class="float butterfly b1">🦋</span>
+    <span class="float butterfly b2">🦋</span>
+    <span class="float butterfly b3">🦋</span>
+
+    <div class="hero-inner">
+        <div class="eyebrow">Un pequeño jardín hecho pa' usted</div>
+
+        <h1>
+            Esmeralda
+            <span>hoy el mundo celebra su existencia</span>
+        </h1>
+
+        <p class="subtitle">
+            Hay personas que hacen más bonito todo lo que las rodea.
+            Hoy quiero regalarte un rinconcito lleno de flores,
+            cariño y deseos hermosos. 💗
+        </p>
+
+        <button class="primary" onclick="document.querySelector('#carta').scrollIntoView({behavior:'smooth'})">
+            Abrir tu sorpresa ✨
+        </button>
+
+        <div class="scroll-note">
+            Con mucho cariño :)· ↓
+        </div>
+    </div>
+</header>
+
+<main>
+
+<section id="carta">
+    <div class="container letter-wrap">
+        <div class="section-kicker">Un secreto para ti</div>
+        <h2>Una carta guardada con cariño 💌</h2>
+
+        <p class="intro">
+            Hay palabras que merecen abrirse despacio.
+            Cuando este lista, toque el sobre.
+        </p>
+
+        <div class="envelope">
+            <span class="envelope-icon" id="envelopeIcon">💌</span>
+
+            <p id="envelopePrompt">
+                tiene una carta esperando....
+            </p>
+
+            <button class="primary" id="letterBtn">
+                Abrir la carta
+            </button>
+
+            <div class="letter hidden" id="letterText">
+                <p>Feliz cumpleaños, Esmeralda. 🌷</p>
+
+                <p>
+                    Hoy deseo que la vida te regale motivos sinceros
+                    para sonreír, personas que te quieran bonito
+                    y oportunidades que te acerquen a tus sueños.
+                </p>
+
+                <p>
+                    Nunca olvide lo valiosa que es ni la luz que
+                    puede llevar a los días de quienes te rodean.
+                    Que cada nueva etapa la encuentre creciendo,
+                    aprendiendo y descubriendo razones para sentirse
+                    orgullosa de si misma.
+                </p>
+
+                <p>
+                    Le pido a Dios que cuide sus pasos, le dé salud,
+                    fortaleza y sabiduría, y que llene su camino de
+                    amor, esperanza y bendiciones. Que nunca le falten
+                    fuerzas para seguir adelante ni motivos para volver
+                    a sonreír. Sobre todo guarde su corazón pues de el 
+                    mana la vida y no deje que nadie le quite su brillo.
+                </p>
+
+                <p>
+                    Hoy es su día, y merece disfrutarlo muchísimo.
+                    Que este nuevo año de vida sea tan bonito como
+                    usted woody.
+                </p>
+
+                <p>
+                    <strong>
+                        ¡Feliz cumpleaños, Damaris!
+                        Que Dios la bendiga hoy y siempre. 💗
+                    </strong>
+                </p>
+
+                <p>Con mucho cariño, para alguien muy especial. 🦋</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="recuerdos">
+    <div class="container">
+        <div class="section-kicker">
+            Pequeños detalles, grandes sonrisas
+        </div>
+
+        <h2>Un jardín de buenos deseos 🌸</h2>
+
+        <p class="intro">
+            Cada flor representa algo bonito que deseo para usted.
+            También puedes agregar tus propias fotos para hacer
+            esta página aún más personal.
+        </p>
+
+        <div class="memories" id="memoryGrid">
+            <article class="memory" style="--rot:-1.5deg">
+                <div class="memory-art">🌷</div>
+                <h3>Que florezcas</h3>
+                <p>
+                    Que tus sueños encuentren espacio para crecer
+                    y convertirse en realidad.
+                </p>
+            </article>
+
+            <article class="memory" style="--rot:1deg">
+                <div class="memory-art">🦋</div>
+                <h3>Que seas libre</h3>
+                <p>
+                    Que nunca dejes de descubrir quién eres y
+                    todo lo hermoso que puedes lograr.
+                </p>
+            </article>
+
+            <article class="memory" style="--rot:-.5deg">
+                <div class="memory-art">✨</div>
+                <h3>Que brilles</h3>
+                <p>
+                    Que tengas días llenos de ilusión, amor sincero
+                    y nuevas oportunidades.
+                </p>
+            </article>
+        </div>
+
+        <div class="upload-area">
+            <strong>📷 ¿Quieres añadir fotos especiales?</strong>
+
+            <p>
+                Elige imágenes de tu dispositivo.
+                Se mostrarán aquí mientras la página esté abierta.
+            </p>
+
+            <input
+                type="file"
+                id="photoInput"
+                accept="image/*"
+                multiple
+                aria-label="Elegir fotos para la galería"
+            >
+        </div>
+    </div>
+</section>
+
+<section id="pastel">
+    <div class="container cake-area">
+        <div class="section-kicker">Pida un deseo</div>
+        <h2>Un pastel solo para usted (es de tres leches) 🎂</h2>
+
+        <p class="intro">
+            Cada llamita guarda un deseo bonito.
+            Toca las velitas para apagarlas una por una.
+        </p>
+
+        <div class="card" style="max-width:550px;margin:auto">
+            <div class="cake">
+                <div class="candle-row">
+                    <button class="candle" aria-label="Apagar vela 1">
+                        <span class="flame"></span>
+                    </button>
+
+                    <button class="candle" aria-label="Apagar vela 2">
+                        <span class="flame"></span>
+                    </button>
+
+                    <button class="candle" aria-label="Apagar vela 3">
+                        <span class="flame"></span>
+                    </button>
+                </div>
+
+                <div class="icing"></div>
+                <div class="cake-body"></div>
+                <div class="cake-heart">♥</div>
+                <div class="cake-plate"></div>
+            </div>
+
+            <p id="candleMessage">
+                ¡Pida un deseo y apague las tres velitas! 💫
+            </p>
+
+            <button class="soft" id="resetCandles">
+                Volver a encender las velitas
+            </button>
+        </div>
+    </div>
+</section>
+
+<section id="juego">
+    <div class="container">
+        <div class="section-kicker">Una pequeña aventura</div>
+        <h2>Encuentra el mensaje secreto 🔎</h2>
+
+        <p class="intro">
+            Responda estas tres preguntitas para abrir la última
+            sorpresa JAJA.
+        </p>
+
+        <div class="card game-box">
+            <div id="questionCount" class="section-kicker">
+                Pista 1 de 3
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <h3 id="question">
+                ¿?
+            </h3>
+
+            <div class="answers" id="answers"></div>
+
+            <p class="feedback" id="gameFeedback"></p>
+
+            <button class="primary hidden" id="nextQuestion">
+                Siguiente pista →
+            </button>
+
+            <div id="gameComplete" class="hidden">
+                <p>
+                    ¡Lo logro, Esme! 🌸
+                    Ha encontrado el camino a su última sorpresa.
+                </p>
+
+                <button class="primary" onclick="revealSurprise()">
+                    Descubrir sorpresa ✨
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="bendicion">
+    <div class="container">
+        <div class="section-kicker">Un deseo desde el corazón</div>
+        <h2>Una bendición para tu nuevo año 🙏</h2>
+
+        <div class="blessing">
+            <div style="font-size:2.5rem">🕊️</div>
+
+            Que Dios ilumine tu camino, cuide tu corazón y te acompañe
+            en cada decisión. Que te dé salud para disfrutar la vida,
+            sabiduría para elegir bien, fortaleza en los días difíciles
+            y alegría para celebrar cada logro. Que su amor te recuerde
+            siempre que tu vida tiene valor y que todavía te esperan
+            muchas cosas bonitas.
+
+            <p>
+                “El Señor te bendiga y te guarde.”
+                <br>
+                <span>Números 6:24</span>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="final">
+    <div class="container final-box">
+        <div class="section-kicker">Y todavía queda algo más…</div>
+        <h2>Una última sorpresa esme</h2>
+
+        <p class="intro">
+            Este pequeño jardín se hizo para recordarle que merece
+            cosas bonitas, hoy y todos los días.
+        </p>
+
+        <div class="card">
+            <div class="big-heart">💗</div>
+
+            <p>
+                Que este cumpleaños sea el comienzo de una etapa llena
+                de momentos que quiera guardar para siempre.
+                Que nunca le falten flores, abrazos sinceros,
+                sueños por cumplir y razones para agradecer.
+            </p>
+
+            <button class="primary" id="surpriseBtn">
+                Toca aquí para su deseo final 🌟
+            </button>
+
+            <p id="surpriseText" class="hidden" style="margin-top:24px;line-height:1.8;">
+                🌷 Esmeralda, que Dios le regale muchos años de vida,
+                salud, amor y felicidad. Que hoy y siempre reciba todo el cariño
+                que merece y que su sonrisa siga floreciendo.
+                ¡Feliz cumpleaños! 🦋🎂💖
+            </p>
+
+            <!-- VIDEO ESPECIAL PARA ESMERALDA -->
+            <div id="videoSorpresa" class="hidden" style="margin-top:30px; animation:appear .9s ease both;">
+
+                <h3 style="color:#b65f89; font-size:1.6rem; font-weight:normal;">
+                    🎬 Un último recuerdo.
+                </h3>
+
+                <p style="line-height:1.8;">
+                    
+                    Espero que no me fune. 💗
+                </p>
+
+                <div style="
+                    max-width:700px;
+                    margin:20px auto;
+                    padding:10px;
+                    background:white;
+                    border:1px solid #f1dbe7;
+                    border-radius:22px;
+                    box-shadow:0 14px 38px #b991ae22;
+                ">
+                    <video
+                        id="miVideo"
+                        controls
+                        playsinline
+                        preload="metadata"
+                        style="
+                            display:block;
+                            width:100%;
+                            max-height:500px;
+                            border-radius:15px;
+                            background:#fceaf3;
+                        "
+                    >
+                        <source src="videocumple.mp4" type="video/mp4">
+                        Tu navegador no puede reproducir este video.
+                    </video>
+                </div>
+
+                <p style="color:#a85f86; line-height:1.8;">
+                    🌷Felices 19 Damaris 🦋
+                </p>
+            </div>
+
+            <button class="soft hidden" id="againBtn" style="margin-top:20px;">
+                Volver a ver la lluvia de flores 🌸
+            </button>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    Se le quiere mucho Esme · 🌷🦋🌷
+    <br>
+    Acepte su color Woody.
+</footer>
+
+
+<script>
+"use strict";
+
+// 1. CARTA SECRETA
+const letterBtn = document.getElementById("letterBtn");
+const letterText = document.getElementById("letterText");
+
+letterBtn.addEventListener("click", () => {
+    const opening = letterText.classList.contains("hidden");
+
+    letterText.classList.toggle("hidden");
+
+    letterBtn.textContent = opening
+        ? "Cerrar la carta 💗"
+        : "Abrir la carta";
+
+    document.getElementById("envelopeIcon").textContent =
+        opening ? "💖" : "💌";
+
+    document.getElementById("envelopePrompt").textContent =
+        opening
+        ? "Todavia me acuerdo cuando la vi por primera vez, pura niña fresa, quien diria que esa niña fresa me caeria muy bien y que me tiraria mucho heat :("
+        : "Esmeralda, tienes una carta esperando por ti…";
+});
+
+
+// 2. AGREGAR FOTOS
+const photoInput = document.getElementById("photoInput");
+const memoryGrid = document.getElementById("memoryGrid");
+
+photoInput.addEventListener("change", () => {
+    const files = Array.from(photoInput.files || [])
+        .filter(file => file.type.startsWith("image/"));
+
+    files.forEach((file, index) => {
+        const reader = new FileReader();
+
+        reader.addEventListener("load", () => {
+            const article = document.createElement("article");
+            article.className = "memory";
+
+            article.style.setProperty(
+                "--rot",
+                `${index % 2 ? 1 : -1}deg`
+            );
+
+            const art = document.createElement("div");
+            art.className = "memory-art";
+
+            const img = document.createElement("img");
+            img.src = reader.result;
+            img.alt = "Foto especial añadida a la galería";
+
+            art.appendChild(img);
+
+            const title = document.createElement("h3");
+            title.textContent = file.name
+                .replace(/\.[^/.]+$/, "")
+                .slice(0, 45) || "Un recuerdo bonito";
+
+            const caption = document.createElement("p");
+            caption.textContent = "Un momento para recordar 💗";
+
+            article.append(art, title, caption);
+            memoryGrid.appendChild(article);
+        });
+
+        reader.readAsDataURL(file);
+    });
+});
+
+
+// 3. PASTEL Y VELITAS
+const candles = Array.from(document.querySelectorAll(".candle"));
+const candleMessage = document.getElementById("candleMessage");
+
+function updateCandles() {
+    const lit = candles.filter(candle =>
+        !candle.querySelector(".flame").classList.contains("off")
+    ).length;
+
+    if (lit === 0) {
+        candleMessage.textContent =
+            "¡Deseo cumplido! 🎉 Que este nuevo año te traiga cosas preciosas.";
+
+        celebrate();
+    } else {
+        candleMessage.textContent =
+            `¡Muy bien! Quedan ${lit} ${
+                lit === 1 ? "velita encendida" : "velitas encendidas"
+            }. 💫`;
+    }
+}
+
+candles.forEach(candle => {
+    candle.addEventListener("click", () => {
+        candle.querySelector(".flame").classList.toggle("off");
+        updateCandles();
+    });
+});
+
+document.getElementById("resetCandles").addEventListener("click", () => {
+    candles.forEach(candle => {
+        candle.querySelector(".flame").classList.remove("off");
+    });
+
+    candleMessage.textContent =
+        "¡Pide un deseo y apaga las tres velitas! 💫";
+});
+
+
+// 4. JUEGO DE TRES PISTAS
+const questions = [
+    {
+        q: "¿Comó se llama su perrita?",
+        a: [" Cookies 🌷", "karla 🪨", " nube ☁️"],
+        correct: 0,
+        good: "¡Exacto! se llama Cookies 🌷"
+    },
+    {
+        q: "¿Cuantos años cumple la niña ?",
+        a: [
+            "30 años",
+            "19 años ",
+            "200 años"
+        ],
+        correct: 1,
+        good: "¡Eso! 19 años de no bañarse "
+    },
+    {
+        q: "¿Qué puede iluminar incluso un día difícil?",
+        a: [
+            "La esperanza y la fe ✨",
+            "Guardar todas las preocupaciones",
+            "Olvidar tus sueños"
+        ],
+        correct: 0,
+        good: "¡Lo encontraste! La esperanza puede ayudarnos a seguir. ✨"
+    }
+];
+
+let questionIndex = 0;
+let answered = false;
+
+const questionEl = document.getElementById("question");
+const answersEl = document.getElementById("answers");
+const feedbackEl = document.getElementById("gameFeedback");
+const nextBtn = document.getElementById("nextQuestion");
+const completeEl = document.getElementById("gameComplete");
+
+function renderQuestion() {
+    const item = questions[questionIndex];
+
+    answered = false;
+
+    document.getElementById("questionCount").textContent =
+        `Pista ${questionIndex + 1} de ${questions.length}`;
+
+    document.getElementById("progressBar").style.width =
+        `${questionIndex / questions.length * 100}%`;
+
+    questionEl.textContent = item.q;
+    answersEl.replaceChildren();
+
+    item.a.forEach((answer, index) => {
+        const button = document.createElement("button");
+
+        button.className = "answer";
+        button.type = "button";
+        button.textContent = answer;
+
+        button.addEventListener("click", () => {
+            chooseAnswer(index, button);
+        });
+
+        answersEl.appendChild(button);
+    });
+
+    feedbackEl.textContent = "";
+    nextBtn.classList.add("hidden");
+    completeEl.classList.add("hidden");
+}
+
+function chooseAnswer(index, button) {
+    if (answered) return;
+
+    const item = questions[questionIndex];
+
+    if (index === item.correct) {
+        answered = true;
+        feedbackEl.textContent = item.good;
+
+        button.style.background = "#e9f8ef";
+        button.style.borderColor = "#a6d8b7";
+    } else {
+        feedbackEl.textContent =
+            "¡Casi! 💕 Prueba otra vez, puedes hacerlo.";
+        return;
+    }
+
+    Array.from(answersEl.querySelectorAll("button")).forEach(b => {
+        b.disabled = true;
+    });
+
+    document.getElementById("progressBar").style.width =
+        `${(questionIndex + 1) / questions.length * 100}%`;
+
+    if (questionIndex < questions.length - 1) {
+        nextBtn.textContent = "Siguiente pista →";
+        nextBtn.classList.remove("hidden");
+    } else {
+        nextBtn.classList.add("hidden");
+        completeEl.classList.remove("hidden");
+        celebrate();
+    }
+}
+
+nextBtn.addEventListener("click", () => {
+    if (questionIndex < questions.length - 1) {
+        questionIndex++;
+        renderQuestion();
+    }
+});
+
+renderQuestion();
+
+
+// 5. LLUVIA DE FLORES Y CORAZONES
+function celebrate() {
+    const layer = document.getElementById("confetti");
+    const symbols = ["🌸", "🌷", "💗", "✨", "🦋", "🌼"];
+
+    for (let i = 0; i < 34; i++) {
+        const piece = document.createElement("span");
+
+        piece.className = "confetti-piece";
+        piece.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        piece.style.left = `${Math.random() * 100}%`;
+        piece.style.fontSize = `${14 + Math.random() * 16}px`;
+        piece.style.animationDuration = `${3 + Math.random() * 3}s`;
+        piece.style.animationDelay = `${Math.random() * .7}s`;
+
+        layer.appendChild(piece);
+
+        piece.addEventListener("animationend", () => {
+            piece.remove();
+        });
+    }
+}
+
+
+// 6. SORPRESA FINAL (texto + video)
+function showSurprise() {
+    document.getElementById("surpriseText").classList.remove("hidden");
+    document.getElementById("videoSorpresa").classList.remove("hidden");
+    document.getElementById("againBtn").classList.remove("hidden");
+
+    document.getElementById("surpriseBtn").textContent =
+        "¡Feliz cumpleaños, Esmeralda! 💗";
+}
+
+// Botón "Descubrir sorpresa" del juego
+function revealSurprise() {
+    showSurprise();
+
+    document.querySelector("#final").scrollIntoView({ behavior: "smooth" });
+
+    setTimeout(celebrate, 500);
+}
+
+// Botón "Toca aquí para tu deseo final"
+document.getElementById("surpriseBtn").addEventListener("click", () => {
+    showSurprise();
+    celebrate();
+});
+
+document.getElementById("againBtn").addEventListener("click", celebrate);
+
+
+// 7. MELODÍA GENERADA CON JAVASCRIPT
+let audioContext = null;
+let musicTimer = null;
+let noteIndex = 0;
+let masterGain = null;
+
+const melody = [
+    523.25, 659.25, 783.99, 659.25,
+    587.33, 698.46, 783.99, 698.46,
+    523.25, 587.33, 659.25, 523.25,
+    440, 523.25, 659.25, 587.33
+];
+
+function playNote() {
+    if (!audioContext || !masterGain) return;
+
+    const now = audioContext.currentTime;
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+
+    osc.type = "sine";
+    osc.frequency.value = melody[noteIndex % melody.length];
+
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.075, now + 0.04);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.48);
+
+    osc.connect(gain);
+    gain.connect(masterGain);
+
+    osc.start(now);
+    osc.stop(now + 0.5);
+
+    noteIndex++;
+}
+
+const musicBtn = document.getElementById("musicBtn");
+
+async function startMusic() {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+
+    if (!AudioCtx) {
+        musicBtn.textContent = "Audio no disponible";
+        return;
+    }
+
+    if (!audioContext) {
+        audioContext = new AudioCtx();
+        masterGain = audioContext.createGain();
+        masterGain.gain.value = 0.55;
+        masterGain.connect(audioContext.destination);
+    }
+
+    await audioContext.resume();
+
+    if (musicTimer) return;
+
+    playNote();
+
+    musicTimer = window.setInterval(playNote, 520);
+    musicBtn.textContent = "♫ Pausar música";
+    musicBtn.setAttribute("aria-pressed", "true");
+}
+
+function stopMusic() {
+    if (musicTimer) {
+        window.clearInterval(musicTimer);
+    }
+
+    musicTimer = null;
+    musicBtn.textContent = "♫ Activar música";
+    musicBtn.setAttribute("aria-pressed", "false");
+}
+
+musicBtn.addEventListener("click", async () => {
+    if (musicTimer) {
+        stopMusic();
+    } else {
+        try {
+            await startMusic();
+        } catch (error) {
+            musicBtn.textContent = "♫ Toca para intentar otra vez";
+        }
+    }
+});
+
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden && musicTimer) {
+        stopMusic();
+    }
+});
+
+// Al reproducir el video, se pausa la melodía para que no se mezclen
+document.getElementById("miVideo").addEventListener("play", stopMusic);
+</script>
+
+</body>
+</html>
